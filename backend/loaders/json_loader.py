@@ -104,59 +104,39 @@ def load_product_specs(csv_path: str) -> list:
 
 def normalize_rfp_specs(rfp_specs: dict) -> dict:
     """
-    Takes raw RFP spec parameters and normalizes text for fair matching.
-
-    Example input:
-        {
-          "cores": "3 Core",
-          "size_sqmm": "2.5 sqmm",
-          "voltage": "1.1 KV",
-          "insulation": "PVC Insulated",
-          "conductor": "COPPER",
-          "standard": "IS-694"
-        }
-
-    Example normalized output:
-        {
-          "cores": "3",
-          "size_sqmm": "2.5",
-          "voltage": "1.1kv",
-          "insulation": "pvc",
-          "conductor": "copper",
-          "standard": "is 694"
-        }
-
-    Args:
-        rfp_specs (dict): Raw spec dictionary from RFP JSON
-
-    Returns:
-        dict: Normalized spec dictionary
+    Normalizes RFP spec values by:
+      - converting all values to strings safely
+      - lowering case
+      - removing spaces/dashes
+      - applying field-specific cleanup rules
     """
 
     normalized = {}
 
     for key, value in rfp_specs.items():
 
+        # Safely convert ANY value to string first
         if value is None:
-            normalized[key] = ""
-            continue
+            v = ""
+        else:
+            v = str(value).lower().strip()
 
-        v = value.lower().replace(" ", "").replace("-", "")
+        # remove spaces and dashes
+        v = v.replace(" ", "").replace("-", "")
 
-        # Specific cleaning rules
+        # Field-specific cleanup
         if key == "cores":
-            v = v.replace("core", "")
+            v = v.replace("core", "")        # convert "3core" → "3"
         if key == "size_sqmm":
             v = v.replace("sqmm", "")
         if key == "voltage":
-            v = v.replace("kv", "") + "kv"  # ensure format like "1.1kv"
+            v = v.replace("kv", "") + "kv"   # ensure suffix "kv"
         if key == "insulation":
             v = v.replace("insulated", "")
         if key == "standard":
             v = v.replace("is", "is ")
 
-        # Final trim
-        normalized[key] = v.strip()
+        normalized[key] = v
 
     return normalized
 
@@ -169,17 +149,7 @@ def normalize_rfp_specs(rfp_specs: dict) -> dict:
 def normalize_product_specs(product_list: list) -> list:
     """
     Normalize product specs in CSV for consistent comparison.
-
-    Example:
-    - "PVC" → "pvc"
-    - "IS-694" → "is 694"
-    - "3 Core" → "3"
-
-    Args:
-        product_list (list): List of dictionaries from CSV
-
-    Returns:
-        list: Normalized SKU list
+    Skips non-string fields such as nested dicts (e.g., '_raw').
     """
 
     normalized_products = []
@@ -189,13 +159,21 @@ def normalize_product_specs(product_list: list) -> list:
 
         for key, value in product.items():
 
-            if value is None:
-                normalized[key] = ""
+            # Skip raw nested dict from canonical mapping
+            if key == "_raw":
+                normalized[key] = value
                 continue
 
-            v = value.lower().replace(" ", "").replace("-", "")
+            # Safely convert any value to string
+            if value is None:
+                v = ""
+            else:
+                v = str(value).lower().strip()
 
-            # Clean specific fields
+            # Remove spaces/dashes
+            v = v.replace(" ", "").replace("-", "")
+
+            # Field-specific cleanup
             if key == "cores":
                 v = v.replace("core", "")
             if key == "size_sqmm":
@@ -207,14 +185,13 @@ def normalize_product_specs(product_list: list) -> list:
             if key == "standard":
                 v = v.replace("is", "is ")
 
-            normalized[key] = v.strip()
+            normalized[key] = v
 
         normalized_products.append(normalized)
 
     return normalized_products
 
 
-
 # -----------------------------------------------------------
 # END OF MODULE
-# -----------------------------------------------------------
+# -----------------------------------------------------------git push origin feature/technical-agent

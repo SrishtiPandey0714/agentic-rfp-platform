@@ -30,7 +30,7 @@ from typing import List, Dict, Any
 from datetime import datetime
 
 # Import loader functions (from your backend/loaders/json_loader.py)
-from loaders.json_loader import (
+from backend.loaders.json_loader import (
     load_rfp_json,
     load_product_specs,
     normalize_rfp_specs,
@@ -407,4 +407,4 @@ if __name__ == "__main__":
         import json
         print(json.dumps(res, indent=2))
     else:
-        print("Example files not found. Please verify paths.")
+        print("Example files not found. Please verify paths.") 
