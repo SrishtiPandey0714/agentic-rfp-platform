@@ -1,0 +1,37 @@
+{
+  "rfp_id": "RFP-001",
+  "issuer": "Bharat Heavy Electricals Limited (BHEL)",
+  "title": "Supply of LT PVC Insulated Copper Cables",
+  "due_date": "2025-03-22",
+
+  "scope_of_supply": [
+    {
+      "item_no": "1",
+      "description": "LT cable 3C x 2.5 sqmm, 1.1kV, PVC insulated, copper conductor",
+      "cores": 3,
+      "size_sqmm": 2.5,
+      "voltage_rating_kv": 1.1,
+      "insulation": "PVC",
+      "conductor": "Copper",
+      "standard": "IS 694",
+      "quantity": 500
+    },
+    {
+      "item_no": "2",
+      "description": "LT cable 3C x 4 sqmm, 1.1kV, PVC insulated, copper conductor",
+      "cores": 3,
+      "size_sqmm": 4,
+      "voltage_rating_kv": 1.1,
+      "insulation": "PVC",
+      "conductor": "Copper",
+      "standard": "IS 694",
+      "quantity": 350
+    }
+  ],
+
+  "tests_required": [
+    "Conductor resistance test",
+    "Insulation resistance test",
+    "High voltage test"
+  ]
+}

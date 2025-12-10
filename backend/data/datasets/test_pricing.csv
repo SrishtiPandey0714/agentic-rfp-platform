@@ -1,0 +1,6 @@
+test_name,test_price
+Conductor resistance test,4000
+Insulation resistance test,5000
+High voltage test,8000
+High voltage withstand test,9000
+Bend test,3500
