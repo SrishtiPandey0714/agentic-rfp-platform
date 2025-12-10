@@ -18,7 +18,11 @@ import os
 from datetime import datetime, timedelta
 
 # Import helper HTML loader functions
-from loaders.html_loader import load_html, parse_rfp_items, extract_rfp_data
+from backend.loaders.html_loader import (
+    load_html,
+    parse_rfp_items,
+    extract_rfp_data
+)
 
 
 
@@ -182,6 +186,10 @@ def run_sales_agent() -> dict:
     return output
 
 
+if __name__ == "__main__":
+    result = run_sales_agent()
+    import json
+    print(json.dumps(result, indent=2))
 
 # -----------------------------------------------------------
 # END OF MODULE
