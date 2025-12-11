@@ -15,14 +15,21 @@ This implementation uses html_loader.py for all HTML parsing.
 """
 
 import os
+import sys
+
+# Add backend root to Python path so "loaders" becomes importable
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+
 from datetime import datetime, timedelta
 
 # Import helper HTML loader functions
-from backend.loaders.html_loader import (
+from loaders.html_loader import (
     load_html,
     parse_rfp_items,
     extract_rfp_data
 )
+
 
 
 
