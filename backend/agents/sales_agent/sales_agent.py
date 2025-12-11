@@ -17,12 +17,8 @@ This implementation uses html_loader.py for all HTML parsing.
 import os
 from datetime import datetime, timedelta
 
-# Import helper HTML loader functions
-from backend.loaders.html_loader import (
-    load_html,
-    parse_rfp_items,
-    extract_rfp_data
-)
+from loaders.html_loader import load_html, parse_rfp_items, extract_rfp_data
+
 
 
 
