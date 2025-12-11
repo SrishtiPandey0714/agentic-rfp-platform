@@ -22,6 +22,7 @@ Responsibilities:
 """
 import sys
 import os
+import json
 
 # Add backend folder to Python path
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
