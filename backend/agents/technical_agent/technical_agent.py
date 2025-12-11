@@ -28,14 +28,21 @@ Assumptions:
 import os
 from typing import List, Dict, Any
 from datetime import datetime
+import sys
+
+# Add backend to Python path dynamically
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+
 
 # Import loader functions (from your backend/loaders/json_loader.py)
-from backend.loaders.json_loader import (
+from loaders.json_loader import (
     load_rfp_json,
-    load_product_specs,
     normalize_rfp_specs,
     normalize_product_specs,
+    load_product_specs
 )
+
 
 
 # -------------------------
