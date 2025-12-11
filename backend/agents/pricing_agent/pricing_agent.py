@@ -20,9 +20,13 @@ Responsibilities:
     - grand total
 5. Produce structured JSON output for Main Agent.
 """
-
-import json
+import sys
 import os
+
+# Add backend folder to Python path
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
+
 
 from loaders.pricing_loader import (
     load_product_prices,
