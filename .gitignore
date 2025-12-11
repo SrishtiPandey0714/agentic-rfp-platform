@@ -1,52 +1,38 @@
-# ---------------------------------------
-# PYTHON BUILD FILES
-# ---------------------------------------
+# Python cache files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pdb
 
-# Ignore virtual environments
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Virtual environment
 venv/
-.env/
-.env.bak/
+env/
 
-# Ignore build outputs
+# VSCode settings
+.vscode/
+
+# Build and distribution folders
 build/
 dist/
 *.egg-info/
 
-# ---------------------------------------
-# PROJECT-SPECIFIC IGNORE RULES
-# ---------------------------------------
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
 
-# Temporary output from agents
+# Temp/output folders
 backend/data/tmp/
 backend/data/output/
 
-# Logs
-*.log
-
-# IDE / Editor folders
-.vscode/
-.idea/
-.settings/
-*.swp
-
-# OS-specific
+# OS specific files
 .DS_Store
 Thumbs.db
 
-# Jupyter (if ever used)
-.ipynb_checkpoints/
+# Ignore compiled cache from loaders
+backend/loaders/__pycache__/
+backend/agents/**/__pycache__/
 
-# Python cache inside backend
-backend/**/__pycache__/
-
-# ---------------------------------------
-# DO NOT IGNORE IMPORTANT INPUT FILES
-# ---------------------------------------
-!backend/data/rfp_documents/
-!backend/data/mock_sites/
-!backend/data/datasets/
+# Logs
+*.log
