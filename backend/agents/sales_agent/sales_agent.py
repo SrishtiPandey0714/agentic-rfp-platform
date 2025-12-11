@@ -30,10 +30,6 @@ from loaders.html_loader import (
     extract_rfp_data
 )
 
-
-
-
-
 # -----------------------------------------------------------
 # STEP 1 — Locate mock HTML listing files
 # -----------------------------------------------------------
