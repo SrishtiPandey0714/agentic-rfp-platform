@@ -1,0 +1,170 @@
+/* Custom styles for agent dashboards */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+html {
+  @apply text-base;
+}
+
+body {
+  @apply text-gray-900 bg-gray-50;
+}
+
+/* Icons */
+.icon {
+  @apply h-5 w-5 text-blue-600;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-not-started, .status-pending, .status-review {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.status-in-progress, .status-in-review {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.status-completed {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-overdue {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Card styles */
+.dashboard-card {
+  @apply bg-white overflow-hidden shadow rounded-lg mb-6;
+}
+
+.dashboard-card-header {
+  @apply px-6 py-4 border-b border-gray-200;
+}
+
+.dashboard-card-header h3 {
+  @apply text-lg font-semibold text-gray-900;
+}
+
+.dashboard-card-header p {
+  @apply mt-1 text-sm text-gray-500;
+}
+
+.dashboard-card-body {
+  @apply px-6 py-4;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+}
+
+.btn-outline {
+  @apply inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+}
+
+/* Table styles */
+.table-container {
+  @apply overflow-x-auto rounded-lg border border-gray-200;
+}
+
+.table {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+.table thead th {
+  @apply px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-600 uppercase tracking-wider;
+}
+
+.table tbody td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-800;
+}
+
+.table tbody tr {
+  @apply hover:bg-gray-50 transition-colors duration-150;
+}
+
+/* Stats cards */
+.stats-grid {
+  @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.stat-card {
+  @apply bg-white overflow-hidden shadow rounded-lg;
+}
+
+.stat-card-content {
+  @apply p-5;
+}
+
+.stat-card-icon {
+  @apply h-10 w-10 text-blue-600;
+}
+
+.stat-card-value {
+  @apply mt-2 text-2xl font-semibold text-gray-900;
+}
+
+.stat-card-label {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.stat-card-description {
+  @apply mt-1 text-xs text-gray-500;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm;
+}
+
+/* Utility classes */
+.text-primary {
+  @apply text-blue-600;
+}
+
+.bg-primary {
+  @apply bg-blue-600;
+}
+
+.border-primary {
+  @apply border-blue-600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .stats-grid {
+    @apply grid-cols-1;
+  }
+  
+  .table-container {
+    @apply -mx-4 border-x-0;
+  }
+  
+  .table thead {
+    @apply hidden;
+  }
+  
+  .table tbody tr {
+    @apply block mb-4 border border-gray-200 rounded-lg overflow-hidden;
+  }
+  
+  .table tbody td {
+    @apply block px-4 py-2 text-sm text-gray-800 border-b border-gray-100 last:border-0;
+  }
+  
+  .table tbody td:before {
+    content: attr(data-label);
+    @apply block text-xs font-medium text-gray-500 uppercase;
+  }
+}
