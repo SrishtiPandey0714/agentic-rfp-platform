@@ -1,43 +1,52 @@
-// e:/EY HACKATHON2/rfp-frontend/src/lib/api.ts
+// src/lib/api.ts
 import axios from 'axios';
 
+/* -----------------------------------
+   AXIOS INSTANCE
+----------------------------------- */
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-// Add request interceptor for auth tokens if needed
-api.interceptors.request.use((config) => {
-  // Add auth token if exists
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
-
-// RFP endpoints
-export const fetchRfps = async (): Promise<RFP[]> => {
-  const { data } = await api.get('/rfps');
-  return data;
+/* -----------------------------------
+   MAIN AGENT – FULL PIPELINE
+----------------------------------- */
+export const runFullRfpPipeline = async () => {
+  const response = await api.post('/run-rfp');
+  return response.data;
 };
 
-export const fetchRfpDetails = async (id: string): Promise<RFP> => {
-  const { data } = await api.get(`/rfp/${id}`);
-  return data;
+/* -----------------------------------
+   RFP FETCHING
+----------------------------------- */
+export const fetchRfps = async () => {
+  const response = await api.get('/rfps');
+  return response.data;
 };
 
-export const runTechnicalMatching = async (rfpId: string): Promise<any> => {
-  const { data } = await api.post('/technical/match', { rfpId });
-  return data;
+export const fetchRfpDetails = async (rfpId: string) => {
+  const response = await api.get(`/rfp/${rfpId}`);
+  return response.data;
 };
 
-// Types
+/* -----------------------------------
+   TECHNICAL AGENT
+----------------------------------- */
+export const runTechnicalMatching = async (rfpId: string) => {
+  const response = await api.post('/technical/match', { rfpId });
+  return response.data;
+};
+
+/* -----------------------------------
+   TYPES
+----------------------------------- */
 export interface RFP {
   id: string;
-  name: string;
+  title: string;
   issuer: string;
-  dueDate: string;
-  status: 'Not Started' | 'In Progress' | 'Completed';
-  scope?: string;
-  requirements?: string[];
+  due_date: string;
+  status?: 'Not Started' | 'In Progress' | 'Completed';
 }
