@@ -1,0 +1,16 @@
+/**
+ * This file forces the main agent dashboard to render only on the client side,
+ * bypassing Next.js server-side rendering (SSR). This fixes hydration mismatch
+ * errors caused by browser-injected attributes that prevent event handlers from working.
+ */
+
+import dynamic from 'next/dynamic';
+
+const MainAgentDashboardClientOnly = dynamic(
+  () => import('./MainAgentDashboardClient'),
+  { ssr: false }
+);
+
+export default function MainAgentPage() {
+  return <MainAgentDashboardClientOnly />;
+}
