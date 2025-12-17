@@ -1,0 +1,47 @@
+{
+  "rfp_id": "RFP-002",
+  "issuer": "PowerGrid Corporation of India",
+  "title": "Procurement of XLPE LT Control Cables",
+  "due_date": "2025-02-18",
+  "scope_of_supply": [
+    {
+      "item_no": "1",
+      "description": "LT cable 3C x 2.5 sqmm, 1.1kV, XLPE insulated, copper conductor",
+      "cores": 3,
+      "size_sqmm": 2.5,
+      "voltage_rating_kv": 1.1,
+      "insulation": "XLPE",
+      "conductor": "Copper",
+      "standard": "IS 7098",
+      "quantity": 600
+    },
+    {
+      "item_no": "2",
+      "description": "LT cable 3C x 6 sqmm, 1.1kV, XLPE insulated, copper conductor",
+      "cores": 3,
+      "size_sqmm": 6,
+      "voltage_rating_kv": 1.1,
+      "insulation": "XLPE",
+      "conductor": "Copper",
+      "standard": "IS 7098",
+      "quantity": 400
+    },
+    {
+      "item_no": "3",
+      "description": "LT cable 4C x 2.5 sqmm, 1.1kV, XLPE insulated, copper conductor",
+      "cores": 4,
+      "size_sqmm": 2.5,
+      "voltage_rating_kv": 1.1,
+      "insulation": "XLPE",
+      "conductor": "Copper",
+      "standard": "IS 7098",
+      "quantity": 350
+    }
+  ],
+  "tests_required": [
+    "Conductor resistance test",
+    "Insulation resistance test",
+    "High voltage withstand test",
+    "Bend test"
+  ]
+}
