@@ -1,0 +1,19 @@
+# Render Blueprint for Backend Deployment
+# This file enables one-click deployment to Render
+
+services:
+  - type: web
+    name: agentic-rfp-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn api.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GEMINI_API_KEY
+        sync: false  # User will manually add this in Render dashboard
+      - key: PORT
+        value: 8000

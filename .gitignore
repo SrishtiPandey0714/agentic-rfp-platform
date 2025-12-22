@@ -36,3 +36,16 @@ backend/agents/**/__pycache__/
 
 # Logs
 *.log
+
+# Environment variables - DO NOT COMMIT
+.env
+.env.local
+.env.production
+backend/.env
+rfp-frontend/.env.local
+
+# Next.js
+rfp-frontend/.next/
+rfp-frontend/out/
+rfp-frontend/node_modules/
+rfp-frontend/.vercel

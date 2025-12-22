@@ -14,7 +14,12 @@ app = FastAPI(
 # ✅ Step 2: Add middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://*.vercel.app",  # Allow all Vercel preview & production deployments
+        "https://agentic-rfp-platform.vercel.app"  # Add your specific domain after deployment
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
