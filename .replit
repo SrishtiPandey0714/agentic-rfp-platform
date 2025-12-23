@@ -1,5 +1,5 @@
 # Replit configuration
-run = "cd backend && uvicorn api.main:app --host 0.0.0.0 --port 8000"
+run = "cd backend && uvicorn main:app --host 0.0.0.0 --port 8000"
 entrypoint = "backend/api/main.py"
 
 [nix]
