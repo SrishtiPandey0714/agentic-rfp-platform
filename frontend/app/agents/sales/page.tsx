@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useMemo } from 'react';
 import { useRfp } from '@/contexts/RfpContext';
 import {
