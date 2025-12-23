@@ -23,7 +23,7 @@ export default function SalesAgentDashboard() {
         id: rfpData.rfp_id,
         title: rfpData.title,
         company: rfpData.issuer,
-        value: `₹ ${rfpData.summary.grand_total_cost.toLocaleString()}`,
+        value: `₹ ${rfpData.summary?.grand_total_cost?.toLocaleString() || '0'}`,
         stage: 'Proposal',
         probability: '75%',
         expectedClose: rfpData.due_date,
