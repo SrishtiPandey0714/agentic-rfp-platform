@@ -7,7 +7,7 @@ import { ArrowPathIcon, DocumentTextIcon, CheckCircleIcon, ClockIcon, UsersIcon 
 import { runFullRfpPipeline, fetchDashboardStats } from '@/lib/api';
 import { useRfp } from '@/contexts/RfpContext';
 import { PipelineStatusChart } from '@/app/dashboard/components/PipelineStatusChart';
-import { AgentContributionChart } from '@/app/dashboard/components/AgentContributionChart';
+import { AgentContributionChart } from '@/app/agents/dashboard/components/AgentContributionChart';
 import AIInsights from '@/components/AIInsights';
 
 export default function MainAgentDashboard({ rfpData: rfpDataProp }: { rfpData?: any }) {
