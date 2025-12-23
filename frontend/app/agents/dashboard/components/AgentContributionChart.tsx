@@ -61,12 +61,13 @@ export function AgentContributionChart({ data }: AgentContributionChartProps) {
                 const total = (dataset.data as number[]).reduce((a, b) => a + b, 0);
                 const percentage = Math.round((value / total) * 100);
 
+                const bgColors = dataset.backgroundColor as string[];
                 return {
                   text: `${label} ${percentage}%`,
-                  fillStyle: dataset.backgroundColor[i] as string,
+                  fillStyle: bgColors?.[i] || '#000',
                   hidden: false,
                   index: i,
-                  strokeStyle: dataset.backgroundColor[i] as string,
+                  strokeStyle: bgColors?.[i] || '#000',
                 };
               });
             }
@@ -80,7 +81,7 @@ export function AgentContributionChart({ data }: AgentContributionChartProps) {
         align: 'start' as const,
         font: {
           size: 16,
-          weight: '600' as const,
+          weight: 600,
         },
         padding: {
           bottom: 10,
