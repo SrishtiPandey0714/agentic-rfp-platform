@@ -6,7 +6,7 @@ import { ArrowPathIcon, DocumentTextIcon, CheckCircleIcon, ClockIcon, UsersIcon 
 
 import { runFullRfpPipeline, fetchDashboardStats } from '@/lib/api';
 import { useRfp } from '@/contexts/RfpContext';
-import { PipelineStatusChart } from '@/app/dashboard/components/PipelineStatusChart';
+import { PipelineStatusChart } from '@/app/agents/dashboard/components/PipelineStatusChart';
 import { AgentContributionChart } from '@/app/agents/dashboard/components/AgentContributionChart';
 import AIInsights from '@/components/AIInsights';
 
