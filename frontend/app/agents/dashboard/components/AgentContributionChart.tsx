@@ -54,7 +54,7 @@ export function AgentContributionChart({ data }: AgentContributionChartProps) {
           color: '#374151',
           generateLabels: (chart) => {
             const data = chart.data;
-            if (data.labels.length && data.datasets.length) {
+            if (data.labels && data.labels.length && data.datasets.length) {
               return data.labels.map((label, i) => {
                 const dataset = data.datasets[0];
                 const value = dataset.data[i] as number;
