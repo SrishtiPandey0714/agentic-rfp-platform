@@ -1,8 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRfp } from '@/contexts/RfpContext';
-import MainAgentDashboard from './MainAgentDashboardClient';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the dashboard component with SSR disabled
+// This prevents the page from being pre-rendered during build
+const MainAgentDashboard = dynamic(() => import('./MainAgentDashboardClient'), {
+  ssr: false,
+  loading: () => <div className="flex items-center justify-center min-h-screen">
+    <div className="text-gray-600">Loading Main Agent Dashboard...</div>
+  </div>
+});
 
 /**
  * Main Agent Page
@@ -13,17 +20,5 @@ import MainAgentDashboard from './MainAgentDashboardClient';
  * - Shows the consolidated RFP response
  */
 export default function MainAgentPage() {
-  const { rfpData } = useRfp();
-
-  // For build time - return a simple component
-  if (typeof window === 'undefined') {
-    return <div>Loading...</div>;
-  }
-
-  useEffect(() => {
-    console.log('[Main Agent] Page loaded');
-  }, []);
-
-  // Pass RFP data to dashboard for insights
-  return <MainAgentDashboard rfpData={rfpData} />;
+  return <MainAgentDashboard />;
 }
