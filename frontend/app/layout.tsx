@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './agents/globals.css'
 import { RfpProvider } from '@/contexts/RfpContext'
 import { AppProvider } from '@/contexts/AppContext'
 
