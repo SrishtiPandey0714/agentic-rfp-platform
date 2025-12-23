@@ -1,15 +1,18 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
-// Dynamically import with SSR disabled to prevent build-time pre-rendering
-const SalesAgentContent = dynamic(() => import('./SalesAgentContent'), {
-  ssr: false,
-  loading: () => <div className="flex items-center justify-center min-h-screen">
-    <div className="text-gray-600">Loading Sales Agent...</div>
-  </div>
-});
+import { useEffect, useState } from 'react';
+import SalesAgentDashboard from './SalesAgentContent';
 
 export default function SalesAgentPage() {
-  return <SalesAgentContent />;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="flex items-center justify-center min-h-screen"><div className="text-gray-600">Loading...</div></div>;
+  }
+
+  return <SalesAgentDashboard />;
 }

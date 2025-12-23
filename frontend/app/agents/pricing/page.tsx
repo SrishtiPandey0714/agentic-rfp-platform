@@ -1,15 +1,18 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
-// Dynamically import with SSR disabled to prevent build-time pre-rendering
-const PricingAgentContent = dynamic(() => import('./PricingAgentContent'), {
-  ssr: false,
-  loading: () => <div className="flex items-center justify-center min-h-screen">
-    <div className="text-gray-600">Loading Pricing Agent...</div>
-  </div>
-});
+import { useEffect, useState } from 'react';
+import PricingAgentDashboard from './PricingAgentContent';
 
 export default function PricingAgentPage() {
-  return <PricingAgentContent />;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="flex items-center justify-center min-h-screen"><div className="text-gray-600">Loading...</div></div>;
+  }
+
+  return <PricingAgentDashboard />;
 }
