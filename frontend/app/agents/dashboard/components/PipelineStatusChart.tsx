@@ -65,7 +65,7 @@ export function PipelineStatusChart({ data }: PipelineStatusChartProps) {
         align: 'start' as const,
         font: {
           size: 16,
-          weight: '600' as const,
+          weight: 600 as const,
         },
         padding: {
           bottom: 20,
