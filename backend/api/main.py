@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.api.routes.rfp import router as rfp_router
-from backend.api.routes.dashboard import router as dashboard_router
-from backend.api.routes.ai_insights import router as ai_insights_router
+from api.routes.rfp import router as rfp_router
+from api.routes.dashboard import router as dashboard_router
+from api.routes.ai_insights import router as ai_insights_router
 
 # ✅ Step 1: Create app FIRST
 app = FastAPI(
