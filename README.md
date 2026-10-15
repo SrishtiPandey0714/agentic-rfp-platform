@@ -52,18 +52,6 @@ An intelligent RFP (Request for Proposal) management platform powered by AI agen
    npm run dev
    ```
 
-4. **Access the app**: http://localhost:3000
-
-## Cloud Deployment
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed step-by-step deployment guide using Vercel and Render.
-
-**Quick Deploy**:
-1. Push to GitHub
-2. Deploy backend to Render (free tier)
-3. Deploy frontend to Vercel (free tier)
-4. Configure environment variables
-
 ## Project Structure
 
 ```
@@ -98,12 +86,6 @@ agentic-rfp-platform/
 - `GET /api/dashboard/overview`: Get dashboard metrics
 - `POST /api/ai-insights`: Generate AI insights for any page
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
 
 ## License
 
